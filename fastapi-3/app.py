@@ -50,6 +50,11 @@ def get_db():
     finally:
         db.close()
 
+@app.get("/")
+def index():
+    return {
+        "message" : "Server running X sqlalchemy"
+    }
 
 # Get all users
 @app.get("/users/", response_model=list[UserResponse])
@@ -101,3 +106,5 @@ def delete_user(user_id: int, db: Session = Depends(get_db)):
     db.delete(db_user)
     db.commit()
     return db_user
+
+
