@@ -12,7 +12,10 @@ from pydantic_schemas import AuthorBase, AuthorCreate, AuthorResponse, BookBase,
 app = FastAPI()
 
 # Database setup
-DATABASE_URL = "sqlite:///./library.db"
+# PRODUCTION URL
+DATABASE_URL = "postgresql://lucky_mbithi:kb0L8KxvjARUFuMF60nBR5LT8mZB5hTJ@dpg-cvc16bbtq21c73e4t75g-a.frankfurt-postgres.render.com/library_s7ys"
+# DEVELOPMENT
+# DATABASE_URL = "sqlite:///./library.db" 
 engine = create_engine(DATABASE_URL, connect_args={ "check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()

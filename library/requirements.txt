@@ -1,0 +1,4 @@
+fastapi
+slalchemy
+uvicorn
+pydantic
